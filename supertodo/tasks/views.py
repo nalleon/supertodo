@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from .models import Task
 from django.utils.text import slugify
 
-def task_list():
-    return
+
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks/task/tasklist.html', {'tasks': tasks})
 
 
 def task_list_pending():
@@ -28,8 +30,8 @@ def delete_task():
 
 
 def edit_task():
-    return 
+    return
 
 
 def toggle_task():
-    return 
+    return
