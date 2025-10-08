@@ -1,0 +1,70 @@
+body {
+  background-color: rgb(151, 165, 170);
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box{
+  background-color: aliceblue;
+  width: 50rem;
+  height: fit-content;
+  border-radius: 20px;
+  color: black;
+  text-align: justify;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: end;
+  justify-items: end;
+}
+
+.pill p {
+  background-color: lightslategray;
+  border-radius: 20px;
+  width: fit-content;
+  font-size: small;
+  font-style: italic;
+  padding: 5px;
+  margin: 10px;
+}
+
+.title{
+  font-variant: small-caps;
+  width: 49rem;
+  border-bottom: 1px solid gray;
+}
+
+.content{
+  color: gray;
+}
+
+.pill-create p {
+  background-color: rgb(255, 255, 255);
+  border-radius: 100px;
+  width: fit-content;
+  font-size:x-large;
+  font-style: bold;
+  padding: 5px;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.create{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

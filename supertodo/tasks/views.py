@@ -8,30 +8,29 @@ def task_list(request):
     tasks = Task.objects.all()
     return render(request, 'tasks/task/tasklist.html', {'tasks': tasks})
 
-
-def task_list_pending():
+def task_list_pending(request):
     return
 
 
-def task_list_completed():
+def task_list_completed(request):
     return
 
 
-def task_detail():
+def task_detail(request, task_slug: str):
     return
 
 
-def add_task():
+def add_task(request):
     return
 
 
-def delete_task():
+def delete_task(request, task_slug: str):
     return
 
 
-def edit_task():
+def edit_task(request, task_slug: str):
     return
 
 
-def toggle_task():
+def toggle_task(request, task_slug: str):
     return
