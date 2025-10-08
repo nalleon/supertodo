@@ -5,8 +5,12 @@ from . import views
 app_name = 'tasks'
 
 urlpatterns = [
-    path('', views.tasks_list, name='task-list'),
-#     path('add/', views.post_add, name='post_add'),
-#     path('<slug:post_slug>/', views.post_detail, name='post_detail'),
-#     path('<slug:post_slug>/edit/', views.post_edit, name='post_edit'),
+    path('', views.task_list, name='task-list'),
+    path('completed/', views.task_list_completed, name='task-list-completed'),
+    path('pending/', views.task_list_pending, name='task-list-pending'),
+    path('add/', views.add_task, name='task-add'),
+    path('<slug:task_slug>/', views.task_detail, name='task-detail'),
+    path('<slug:task_slug>/delete/', views.delete_task, name='task-delete'),
+    path('<slug:task_slug>/edit/', views.edit_task, name='task-edit'),
+    path('<slug:task_slug>/toggle/', views.toggle_task, name='task-toggle'),
 ]
