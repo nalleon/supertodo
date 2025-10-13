@@ -9,6 +9,9 @@ body {
   text-align: center;
 }
 
+/* .tasksDisplay{
+} */
+
 .box{
   background-color: aliceblue;
   width: 50rem;
@@ -67,4 +70,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.filter {
+  /* background-color: red; */
+  width: fit-content;
+
+  display: flex;
 }

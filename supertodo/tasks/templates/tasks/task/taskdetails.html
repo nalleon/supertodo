@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}     
+
+  {% block content %}
+    <div class="box">
+      <div class="top-border"></div>
+            <h3 class="title">{{ task.name }} {% if task.completed %} ✅ {% else %} ❌ {% endif %}</h3>
+            <p class="content"> {{task.description}}</p>
+      <br>
+      <div class="buttons">
+        <span class="pill">
+          <p><a href="{% url 'tasks:task-edit' task.slug %}">Edit here</a></p>
+        </span>
+        <span class="pill">
+          <p><a href="{% url 'tasks:task-delete' task.slug %}">Delete task</a></p>
+        </span>
+      </div>
+    </div>
+  {% endblock %}

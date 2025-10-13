@@ -6,8 +6,19 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   </head>
-
+  {% include "header.html" %} 
   <body>
+    <div class="filter">
+      <span class="pill">
+        <p> <a href="{% url 'tasks:task-list' %}">View All</a></p>
+      </span>
+      <span class="pill">
+        <p> <a href="{% url 'tasks:task-list-pending' %}">View Pending</a></p>
+      </span>
+      <span class="pill">
+        <p> <a href="{% url 'tasks:task-list-completed' %}">View Completed</a></p>
+      </span>
+    </div>
     <div class="container">
         {% block content %}
           

@@ -1,31 +1,76 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
 from .models import Task
+from .forms import AddTaskForm
+# from .forms import EditPostForm
+
 from django.utils.text import slugify
+import datetime
+
 
 
 def task_list(request):
-    tasks = Task.objects.all()
-    return render(request, 'tasks/task/tasklist.html', {'tasks': tasks})
+    tasks = Task.objects.all().order_by('-updated_at')
+    return render(request, 'tasks/tasklist.html', {'tasks': tasks, 'subtitle':'Todas las tareas'})
 
 def task_list_pending(request):
-    return
+    pending_tasks = Task.objects.filter(completed = False).order_by('-updated_at')
+    
+    #Mantenemos el mismo tasklist.html o uno para cada list?
+    return render(request, 'tasks/tasklist.html', {'tasks': pending_tasks, 'subtitle':'Tareas incompletas'})     
 
 
 def task_list_completed(request):
-    return
+    completed_tasks = Task.objects.filter(completed = True).order_by('-updated_at')
+
+    #Mantenemos el mismo tasklist.html o uno para cada list?
+    return render(request, 'tasks/tasklist.html', {'tasks': completed_tasks, 'subtitle':'Tareas completadas'}) 
 
 
 def task_detail(request, task_slug: str):
-    return
+
+    try:
+        task = Task.objects.get(slug=task_slug)
+
+    except Task.DoesNotExist:
+        return HttpResponse(f'Task with slug "{task_slug}" does not exist!') # Mejorar esto, quizas un noexiste.html
+
+    return render(request, 'tasks/task/taskdetails.html', {'task': task, 'subtitle':'Task Details'})
 
 
+# Hay que ivestigar como darle estilo al ModelForm
 def add_task(request):
-    return
+
+    if request.method == 'POST':
+
+        if (form := AddTaskForm(request.POST)).is_valid():
+
+            task = form.save(commit=False)
+            task.slug = slugify(task.name)
+            task.completed = False
+            task.created_at = datetime.datetime.now()
+            task.updated_at = datetime.datetime.now()
+            task.save()
+
+            return redirect('tasks:task-list')  # Hay q mandar por parametros el subtitle
+
+    else:
+        form = AddTaskForm()
+
+    return render(request, 'tasks/task/taskadd.html', dict(form=form))
 
 
 def delete_task(request, task_slug: str):
-    return
+
+    try:
+        task = Task.objects.get(slug=task_slug)
+
+    except Task.DoesNotExist:
+        return HttpResponse(f'Task with slug "{task_slug}" does not exist!') # Mejorar esto, quizas un noexiste.html
+    
+    task.delete()
+    return redirect('tasks:task-list')
 
 
 def edit_task(request, task_slug: str):

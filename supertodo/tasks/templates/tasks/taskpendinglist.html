@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+      {% block content %}        
+        <div class="create">
+          <span class="pill-create">
+            <p><a href="{% url 'tasks:task-add'%}"> + </a></p>
+          </span>
+        </div>
+          {% for task in tasks %}
+            <div class="box">
+              <div class="top-border"></div>
+                    <h3 class="title">{{ task.name }}</h3>
+                    <p class="content"> {{task.description}}</p>
+              <br>
+              <div class="buttons">
+                <span class="pill">
+                  <p>Read more <a href="{% url 'tasks:task-detail' task.slug %}">here</a></p>
+                </span>
+                <span class="pill">
+                  <p><a href="{% url 'tasks:task-edit' task.slug %}">Edit here</a></p>
+                </span>
+              </div>
+            </div>
+            {% endfor %}
+      {% endblock %}
