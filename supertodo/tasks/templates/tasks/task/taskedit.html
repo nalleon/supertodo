@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+  {% block content %}     
+      {% comment %} <div class="goBack">
+        <a href="{% url 'posts:post-list' %}"><- Volver a los posts</a>
+      </div> {% endcomment %}
+
+      <div class="formContainer">
+      
+        <form method="post" novalidate> {%comment%} novalidate si quieres valores vacíos {%endcomment%}
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="Enviar">
+        </form>
+      
+      </div>
+  {% endblock %}

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from .models import Task
 from .forms import AddTaskForm
-# from .forms import EditPostForm
+from .forms import EditTaskForm
 
 from django.utils.text import slugify
 import datetime
@@ -53,12 +53,12 @@ def add_task(request):
             task.updated_at = datetime.datetime.now()
             task.save()
 
-            return redirect('tasks:task-list')  # Hay q mandar por parametros el subtitle
+            return redirect('tasks:task-list')  
 
     else:
         form = AddTaskForm()
 
-    return render(request, 'tasks/task/taskadd.html', dict(form=form))
+    return render(request, 'tasks/task/taskadd.html', dict(form=form, subtitle='Añadir tarea'))
 
 
 def delete_task(request, task_slug: str):
@@ -70,12 +70,38 @@ def delete_task(request, task_slug: str):
         return HttpResponse(f'Task with slug "{task_slug}" does not exist!') # Mejorar esto, quizas un noexiste.html
     
     task.delete()
-    return redirect('tasks:task-list')
+    return redirect('tasks:task-list')  
 
 
 def edit_task(request, task_slug: str):
-    return
+
+    task = Task.objects.get(slug=task_slug)
+
+    if request.method == 'POST':
+        if (form := EditTaskForm(request.POST, instance=task)).is_valid():
+
+            task = form.save(commit=False)
+            task.slug = slugify(task.name)
+            task.updated_at = datetime.datetime.now()
+            task.save()
+            return redirect('tasks:task-detail', task.slug)
+
+    else:
+        form = EditTaskForm(instance=task)
+
+    return render(request, 'tasks/task/taskedit.html', dict(task=task, form=form, subtitle='Editar tarea')) # {task:task, form:form, 'subtitle':'Editar Tarea'} por que no funciona así?
 
 
 def toggle_task(request, task_slug: str):
-    return
+
+    try:
+        task = Task.objects.get(slug=task_slug)
+
+    except Task.DoesNotExist:
+        return HttpResponse(f'Task with slug "{task_slug}" does not exist!') # Mejorar esto, quizas un noexiste.html
+    
+    task.completed = not task.completed
+    task.updated_at = datetime.datetime.now()
+    task.save()
+
+    return redirect('tasks:task-list')

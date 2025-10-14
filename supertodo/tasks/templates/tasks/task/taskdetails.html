@@ -4,16 +4,20 @@
 
   {% block content %}
     <div class="box">
-      <div class="top-border"></div>
-            <h3 class="title">{{ task.name }} {% if task.completed %} ✅ {% else %} ❌ {% endif %}</h3>
-            <p class="content"> {{task.description}}</p>
+      <div class="top-border">
+        <div class="titleContainer">
+          <h3 class="title">{{ task.name }}</h3>
+          <h3 class="sign"> {% if task.completed %} Completada ✅ {% else %} Pendiente ❌ {% endif %} </a></h3>
+        </div>        
+        <p class="content"> {{task.description}}</p>
+      </div>
       <br>
       <div class="buttons">
         <span class="pill">
-          <p><a href="{% url 'tasks:task-edit' task.slug %}">Edit here</a></p>
+          <p><a href="{% url 'tasks:task-edit' task.slug %}">📝 Edit here</a></p>
         </span>
         <span class="pill">
-          <p><a href="{% url 'tasks:task-delete' task.slug %}">Delete task</a></p>
+          <p><a href="{% url 'tasks:task-delete' task.slug %}"> 🗑️ Delete task</a></p>
         </span>
       </div>
     </div>

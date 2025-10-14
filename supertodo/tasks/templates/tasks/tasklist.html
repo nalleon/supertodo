@@ -12,13 +12,19 @@
           {% for task in tasks %}
             <div class="box">
               <div class="top-border">
-                <h3 class="title">{{ task.name }} {% if task.completed %} ✅ {% else %} ❌ {% endif %}</h3>
+                <div class="titleContainer">
+                  <h3 class="title">{{ task.name }}</h3>
+                  <h3 class="sign"> <a href="{% url 'tasks:task-toggle' task.slug %}"> {% if task.completed %} Completada ✅ {% else %} Pendiente ❌ {% endif %}</a> </h3>
+                </div>
                 <p class="content"> {{task.description | truncatewords:5 }}</p> {% comment %} truncar a partir de 10 o 20 más adelante {% endcomment %}
               </div>
               <br>
               <div class="buttons">
                 <span class="pill">
-                  <p><a href="{% url 'tasks:task-edit' task.slug %}">Edit here</a></p>
+                  <p><a href="{% url 'tasks:task-delete' task.slug %}"> 🗑️ Delete task</a></p>
+                </span>
+                <span class="pill">
+                  <p><a href="{% url 'tasks:task-edit' task.slug %}"> 📝 Edit here</a></p>
                 </span>
                 <span class="pill">
                   <p><a href="{% url 'tasks:task-detail' task.slug %}">Read more</a></p>

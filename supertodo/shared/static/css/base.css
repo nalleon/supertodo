@@ -19,7 +19,7 @@ body {
   border-radius: 20px;
   color: black;
   text-align: justify;
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
   padding-left: 1rem;
   margin-top: 1rem;
 }
@@ -41,23 +41,31 @@ body {
   margin: 10px;
 }
 
-.title{
+.titleContainer{
   font-variant: small-caps;
   width: 49rem;
+  height: 3rem;
   border-bottom: 1px solid gray;
+
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.sign{
+  margin-right: 1rem;
 }
 
 .content{
   color: gray;
 }
 
-.pill-create p {
+.pill-create p{
   background-color: rgb(255, 255, 255);
   border-radius: 100px;
-  width: fit-content;
+  width: 4rem;
   font-size:x-large;
   font-style: bold;
-  padding: 5px;
+  padding: 2px;
   margin: 10px;
 }
 
@@ -76,5 +84,22 @@ a {
   /* background-color: red; */
   width: fit-content;
 
+  display: flex;
+}
+
+.formContainer{
+  margin-top: 2rem;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
+}
+
+.formContainer div{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formContainer textarea{
+  resize: none;
   display: flex;
 }
