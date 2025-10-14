@@ -18,7 +18,7 @@ def task_list_pending(request):
     pending_tasks = Task.objects.filter(completed = False).order_by('-updated_at')
     
     #Mantenemos el mismo tasklist.html o uno para cada list?
-    return render(request, 'tasks/tasklist.html', {'tasks': pending_tasks, 'subtitle':'Tareas incompletas'})     
+    return render(request, 'tasks/tasklist.html', {'tasks': pending_tasks, 'subtitle':'Tareas pendientes'})     
 
 
 def task_list_completed(request):

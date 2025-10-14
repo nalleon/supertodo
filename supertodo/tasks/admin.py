@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+
+from .models import Task
+
+@admin.register(Task)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'description', 'slug', 'completed', 'created_at', 'updated_at')
