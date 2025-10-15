@@ -14,11 +14,17 @@
       <br>
       <div class="buttons">
         <span class="pill">
-          <p><a href="{% url 'tasks:task-edit' task.slug %}">📝 Edit here</a></p>
+          <p><a href="{% url 'tasks:task-edit' task.slug %}">📝 Editar</a></p>
         </span>
         <span class="pill">
-          <p><a href="{% url 'tasks:task-delete' task.slug %}"> 🗑️ Delete task</a></p>
+          <p><a href="{% url 'tasks:task-delete' task.slug %}"> 🗑️ Eliminar</a></p>
         </span>
       </div>
+    </div>
+
+    <div class="back-btn">
+      <span class="pill">
+        <p><a href="{% url 'tasks:task-list' %}"> Volver </a></p>
+      </span>
     </div>
   {% endblock %}

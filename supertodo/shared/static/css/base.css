@@ -1,7 +1,7 @@
 body {
   background-color: rgb(151, 165, 170);
   color: white;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ body {
 /* .tasksDisplay{
 } */
 
-.box{
+.box {
   background-color: aliceblue;
   width: 50rem;
   height: fit-content;
@@ -24,7 +24,7 @@ body {
   margin-top: 1rem;
 }
 
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row-reverse;
   align-items: end;
@@ -41,7 +41,16 @@ body {
   margin: 10px;
 }
 
-.titleContainer{
+.pill p:hover {
+  background-color: rgb(102, 146, 178);
+  transform: scale(1.05);
+}
+
+.pill p:hover a {
+  color: white;
+}
+
+.titleContainer {
   font-variant: small-caps;
   width: 49rem;
   height: 3rem;
@@ -51,19 +60,19 @@ body {
   justify-content: space-between;
 }
 
-.sign{
+.sign {
   margin-right: 1rem;
 }
 
-.content{
+.content {
   color: gray;
 }
 
-.pill-create p{
+.pill-create p {
   background-color: rgb(255, 255, 255);
   border-radius: 100px;
   width: 4rem;
-  font-size:x-large;
+  font-size: x-large;
   font-style: bold;
   padding: 2px;
   margin: 10px;
@@ -74,7 +83,7 @@ a {
   color: black;
 }
 
-.create{
+.create {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,19 +96,128 @@ a {
   display: flex;
 }
 
-.formContainer{
+.formContainer {
   margin-top: 2rem;
   align-items: start;
   justify-content: start;
   text-align: start;
 }
 
-.formContainer div{
+.formContainer div {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.formContainer textarea{
+.formContainer textarea {
   resize: none;
   display: flex;
+}
+
+.formContainer {
+  margin-top: 2rem;
+  align-items: start;
+  justify-content: start;
+  text-align: start;
+  background-color: aliceblue;
+  color: black;
+  width: 50rem;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.formContainer p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formContainer input[type="text"],
+.formContainer textarea {
+  width: 97%;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: black;
+  background-color: white;
+}
+
+.formContainer textarea {
+  resize: none;
+  height: 6rem;
+}
+
+.formContainer input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+}
+
+.formContainer input[type="submit"] {
+  background-color: lightslategray;
+  font-style: italic;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.formContainer input[type="submit"]:hover {
+  background-color: rgb(127, 173, 98);
+  transform: scale(1.05);
+}
+
+.formContainer label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer input[type="submit"] {
+  align-self: center;
+  font-size:medium;
+  padding: 0.5rem 1.2rem;
+  width: 6rem;
+  font-size: 1rem ;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.formContainer .pill p {
+  background-color: #bb7171;  
+  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  transition: all 0.3s ease;
+}
+
+.formContainer .pill p a {
+  text-decoration: none;
+  color: #333; 
+  font-weight: bold;
+}
+
+.formContainer .pill p:hover {
+  background-color: rgb(255, 120, 120);
+  transform: scale(1.05);
+}
+
+.formContainer .pill p:hover a {
+  color: white;
+}
+
+.form-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
