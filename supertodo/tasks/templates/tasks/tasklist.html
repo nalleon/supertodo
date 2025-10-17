@@ -7,7 +7,8 @@
         <p><a href="{% url 'tasks:task-add'%}"> + </a></p>
       </span>
     </div>
-      {% if tasks|length > 0 %}
+    {% if tasks|length > 0 %}
+      <p class="total">Total de posts:  {{tasks|length}}</p>
         <div class="tasksDisplay">
           {% for task in tasks %}
             <div class="box">

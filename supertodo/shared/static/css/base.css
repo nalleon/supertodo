@@ -65,6 +65,12 @@ body {
   color: gray;
 }
 
+.total {
+  font-variant: small-caps;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+
 .pill-create p {
   background-color: rgb(255, 255, 255);
   border-radius: 100px;
