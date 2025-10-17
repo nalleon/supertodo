@@ -182,16 +182,16 @@ a {
 
 .formContainer input[type="submit"] {
   align-self: center;
-  font-size:medium;
+  font-size: medium;
   padding: 0.5rem 1.2rem;
   width: 6rem;
-  font-size: 1rem ;
+  font-size: 1rem;
   text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .formContainer .pill p {
-  background-color: #bb7171;  
+  background-color: #bb7171;
   border-radius: 25px;
   padding: 0.5rem 1.2rem;
   margin-top: 1rem;
@@ -202,7 +202,7 @@ a {
 
 .formContainer .pill p a {
   text-decoration: none;
-  color: #333; 
+  color: #333;
   font-weight: bold;
 }
 
@@ -215,9 +215,15 @@ a {
   color: white;
 }
 
-.form-btn{
+.form-btn {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.notexist {
+  text-align: center;
   align-items: center;
   justify-content: center;
 }

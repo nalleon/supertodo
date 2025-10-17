@@ -17,14 +17,12 @@ def task_list(request):
 def task_list_pending(request):
     pending_tasks = Task.objects.filter(completed = False).order_by('-updated_at')
     
-    #Mantenemos el mismo tasklist.html o uno para cada list?
     return render(request, 'tasks/tasklist.html', {'tasks': pending_tasks, 'subtitle':'Tareas pendientes'})     
 
 
 def task_list_completed(request):
     completed_tasks = Task.objects.filter(completed = True).order_by('-updated_at')
 
-    #Mantenemos el mismo tasklist.html o uno para cada list?
     return render(request, 'tasks/tasklist.html', {'tasks': completed_tasks, 'subtitle':'Tareas completadas'}) 
 
 
@@ -32,14 +30,12 @@ def task_detail(request, task_slug: str):
 
     try:
         task = Task.objects.get(slug=task_slug)
-
     except Task.DoesNotExist:
-        return HttpResponse(f'Task with slug "{task_slug}" does not exist!') # Mejorar esto, quizas un noexiste.html
+            return render(request, 'tasks/task/tasknotexists.html', {'task_slug': task_slug})
 
     return render(request, 'tasks/task/taskdetails.html', {'task': task, 'subtitle':'Task Details'})
 
 
-# Hay que ivestigar como darle estilo al ModelForm
 def add_task(request):
 
     if request.method == 'POST':

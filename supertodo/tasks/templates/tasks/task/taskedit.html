@@ -6,8 +6,9 @@
 
 <div class="formContainer">
   <form method="post" novalidate>
-    {%comment%} novalidate si quieres valores vacíos {%endcomment%} {%
-    csrf_token %} {{ form }}
+    {%comment%} novalidate si quieres valores vacíos {%endcomment%} 
+    {%csrf_token %}
+    {{ form }}
     <div class="form-btn">
       <input type="submit" value="Enviar" />
       <span class="pill">
