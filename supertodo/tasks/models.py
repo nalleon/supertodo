@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Task(models.Model):
+    # Properties
     name = models.CharField(max_length=70)
     description = models.TextField(max_length=256, blank=True)
     slug = models.SlugField(unique=True)
