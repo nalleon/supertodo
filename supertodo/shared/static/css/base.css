@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(151, 165, 170);
+  background-color: rgb(32, 32, 32);
   color: white;
   font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
@@ -9,9 +9,6 @@ body {
   text-align: center;
 }
 
-/* .tasksDisplay{
-} */
-
 .box {
   background-color: aliceblue;
   width: 50rem;
@@ -19,7 +16,6 @@ body {
   border-radius: 20px;
   color: black;
   text-align: justify;
-  /* padding-top: 1rem; */
   padding-left: 1rem;
   margin-top: 1rem;
 }
@@ -32,11 +28,12 @@ body {
 }
 
 .pill p {
-  background-color: lightslategray;
+  background: linear-gradient(#9e99cc, lightslategray);
   border-radius: 20px;
   width: fit-content;
   font-size: small;
   font-style: italic;
+  font-weight: bold;
   padding: 5px;
   margin: 10px;
 }
@@ -90,7 +87,6 @@ a {
 }
 
 .filter {
-  /* background-color: red; */
   width: fit-content;
 
   display: flex;
@@ -190,7 +186,7 @@ a {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.formContainer .pill p {
+.pill-form p {
   background-color: #bb7171;
   border-radius: 25px;
   padding: 0.5rem 1.2rem;
@@ -198,20 +194,21 @@ a {
   font-size: 1rem;
   font-style: normal;
   transition: all 0.3s ease;
+  margin-left: 0.5rem;
 }
 
-.formContainer .pill p a {
+.pill-form p a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
 }
 
-.formContainer .pill p:hover {
+.pill-form p:hover {
   background-color: rgb(255, 120, 120);
   transform: scale(1.05);
 }
 
-.formContainer .pill p:hover a {
+.pill-form p:hover a {
   color: white;
 }
 
@@ -222,13 +219,12 @@ a {
   justify-content: center;
 }
 
-.box-not-found{
+.box-not-found {
   background-color: aliceblue;
   width: fit-content;
   height: 5rem;
   border-radius: 20px;
   color: black;
-  /* padding-top: 1rem; */
   padding: 1rem;
   margin-top: 1rem;
 
@@ -237,6 +233,25 @@ a {
   justify-content: center;
 }
 
-.remark{
+.remark {
   color: #b84a4a;
+}
+
+.custom-header {
+  font-size: 4.5rem;
+  background: linear-gradient(#4b40be, #5c7a96);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  text-shadow: #333;
+  margin-bottom: 0;
+}
+
+.custom-subtitle {
+  font-size: 1.5rem;
+  background: linear-gradient(#4b40be, #5c7a96);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  text-shadow: #333;
 }
