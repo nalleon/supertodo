@@ -8,6 +8,7 @@
           </span>
         </div>
         {% if tasks|length > 0 %}
+          <p class="total">Total de posts:  {{tasks|length}}</p>
           {% for task in tasks %}
             <div class="box">
               <div class="top-border"></div>
