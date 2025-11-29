@@ -23,7 +23,7 @@ Proyecto de una web en Python para la gestión de tareas desarrollado para el m�
 
 ### Estructura y diseño
 
-#### Carpetas
+#### Aplicaciones
 ```
 supertodo/
 │── main/
