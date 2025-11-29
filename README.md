@@ -33,7 +33,7 @@ supertodo/
 
 #### Modelos
 
-- Task
+- **tasks:** Task
 
 ```python
 name = models.CharField(max_length=70)
