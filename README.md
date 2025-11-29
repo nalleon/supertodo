@@ -78,7 +78,7 @@ git clone https://github.com/nalleon/supertodo.git
 cd supertodo/supertodo && j setup 
 ```
 
-3. Accede a `http://127.0.0.1:8000/`
+3. Accede a `http://127.0.0.1:8000/tasks`
 
 > Se proporciona un usuario con privilegios con credenciales admin:admin para la página de administración.
 
